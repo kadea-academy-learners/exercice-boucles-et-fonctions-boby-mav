@@ -9,10 +9,22 @@
   Placeholder : levée d'erreur pour indiquer que l'exercice doit être implémenté.
 */
 function nombreDeVoyelles(phrase) {
-  // Exercice non implémenté : doit compter les voyelles
-  // Placeholder neutre : retourne 0 pour indiquer non-implémentation
-  return 0;
+  if (typeof phrase !== 'string') {
+    return 0;
+  }
+
+  const voyelles = ['a', 'e', 'i', 'o', 'u']; // sans 'y'
+  let compteur = 0;
+  const phraseMin = phrase.toLowerCase(); // <-- correction ici
+
+  for (let char of phraseMin) {
+    if (voyelles.includes(char)) {
+      compteur++;
+    }
+  }
+  return compteur;
 }
 
-// Ne pas modifier la ligne ci-dessous
-module.exports = { nombreDeVoyelles }
+console.log(nombreDeVoyelles("Bonjour")); 
+module.exports = { nombreDeVoyelles };
+
